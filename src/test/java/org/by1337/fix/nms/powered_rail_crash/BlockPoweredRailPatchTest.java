@@ -1,7 +1,6 @@
 package org.by1337.fix.nms.powered_rail_crash;
 
 import org.by1337.bpatcher.util.BytecodeHelper;
-import org.by1337.bpatcher.util.MethodPrinter;
 import org.junit.jupiter.api.Test;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.analysis.Analyzer;
@@ -22,7 +21,6 @@ class BlockPoweredRailPatchTest {
         File resourcesDirectory = new File("src/test/resources");
 
         ClassNode node = BytecodeHelper.readClass(Files.readAllBytes(resourcesDirectory.toPath().resolve("BlockPoweredRail.class")));
-        node.methods.removeIf(m -> !m.desc.equals("(Lnet/minecraft/server/v1_16_R3/IBlockData;Lnet/minecraft/server/v1_16_R3/World;Lnet/minecraft/server/v1_16_R3/BlockPosition;Lnet/minecraft/server/v1_16_R3/Block;)V"));
 
         BlockPoweredRailPatch poweredRailPatch = new BlockPoweredRailPatch();
         poweredRailPatch.apply(node);

@@ -72,7 +72,6 @@ public class BlockPoweredRailPatch implements Patcher {
            counterIncrement = true;
        }
 
-
        if (!counterDecrease) {
            String methodDump = MethodPrinter.write(methodNode, classNode);
            throw new IllegalStateException(
